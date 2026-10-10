@@ -17,7 +17,7 @@ export const projects = [
     ],
     github: "https://github.com/ejazmehendi123-cell/Qstream-Micro-Learning",
     live: null,
-    image: null,
+    image: "/images/qstream.jpg",
   },
   {
     id: "02",
@@ -38,7 +38,7 @@ export const projects = [
     github:
       "https://github.com/ejazmehendi123-cell/unified-student-placement-system",
     live: null,
-    image: null,
+    image: "/images/placement.jpg",
   },
   {
     id: "03",
@@ -62,6 +62,6 @@ export const projects = [
     ],
     github: "https://github.com/ejazmehendi123-cell/Bank-Account-Management",
     live: null,
-    image: null,
+    image: "/images/bank.jpg",
   },
 ];
