@@ -21,6 +21,16 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  const scrollToSection = (id) => {
+    const el = document.querySelector(id);
+    if (el) {
+      window.scrollTo({
+        top: el.getBoundingClientRect().top + window.scrollY - 70,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -29,149 +39,297 @@ export default function Hero() {
         minHeight: '100vh',
         width: '100%',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
+        background: '#000000',
       }}
     >
-      {/* Particle background */}
+      {/* 3D Rotating Particle Sphere Background */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
         <ParticleBackground />
       </div>
 
-      {/* Radial fade overlay */}
+      {/* Radial overlay glow behind text */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 60%, #000 100%)',
+          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 70%, #000000 100%)',
           zIndex: 1,
+          pointerEvents: 'none',
         }}
       />
 
-      {/* Content */}
-      <div className="section-container" style={{ position: 'relative', zIndex: 2, width: '100%', padding: '6rem 1.5rem 4rem' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+      {/* Hero Container */}
+      <div
+        className="section-container"
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          width: '100%',
+          padding: '5rem 1.5rem 6rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+        }}
+      >
+        {/* Top Minimal Navigation Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          style={{
+            position: 'absolute',
+            top: '2.5rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '2rem',
+            zIndex: 10,
+          }}
+        >
+          {[
+            { label: 'WORK', href: '#projects' },
+            { label: 'STACK', href: '#stack' },
+            { label: 'EXPERIENCE', href: '#experience' },
+            { label: 'EDUCATION', href: '#education' },
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.href);
+              }}
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.7rem',
+                color: 'rgba(255,255,255,0.45)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.25em',
+                textDecoration: 'none',
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
+            >
+              {item.label}
+            </a>
+          ))}
+        </motion.div>
 
-          {/* Status line */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}
-          >
-            <span style={{
-              width: 8, height: 8, borderRadius: '50%',
-              background: '#22c55e',
-              display: 'inline-block',
-              boxShadow: '0 0 10px #22c55e',
-              animation: 'pulse 2s infinite',
-            }} />
-            <span style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.65rem',
-              color: 'rgba(255,255,255,0.4)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.25em',
-            }}>
-              System Online — Available for Software Engineering Opportunities
-            </span>
-          </motion.div>
+        {/* Hero Central Content */}
+        <div style={{ maxWidth: '1050px', margin: '0 auto', textAlign: 'center', width: '100%' }}>
 
-          {/* Main heading */}
+          {/* Main Headline */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <h1
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontWeight: 700,
-                fontSize: 'clamp(2.5rem, 8vw, 6rem)',
-                lineHeight: 1.0,
+                fontWeight: 800,
+                fontSize: 'clamp(2.8rem, 7.5vw, 6.2rem)',
+                lineHeight: 1.05,
                 textTransform: 'uppercase',
-                letterSpacing: '-0.02em',
-                marginBottom: '1.5rem',
+                letterSpacing: '-0.01em',
+                marginBottom: '2rem',
+                color: '#ffffff',
               }}
             >
-              <span className="text-glow" style={{ color: '#ffffff' }}>
-                Building Intelligent
-              </span>
-              <br />
-              <span className="text-glow" style={{ color: '#ffffff' }}>
-                Systems
-              </span>
-              {' '}
-              <span style={{ color: 'var(--secondary)' }} className="text-glow-red">
-                &amp;
-              </span>
-              <br />
-              <span style={{ color: 'var(--secondary)' }} className="text-glow-red">
-                Scalable Experiences
-              </span>
+              <div style={{ display: 'block' }} className="text-glow">
+                BUILDING INTELLIGENT
+              </div>
+              <div style={{ display: 'block' }} className="text-glow">
+                SYSTEMS
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.3em', flexWrap: 'wrap' }}>
+                <span style={{ color: '#ffffff' }} className="text-glow">
+                  &amp; SCALABLE
+                </span>
+                <span
+                  style={{
+                    color: 'var(--secondary)',
+                    textShadow: '0 0 35px rgba(255,0,51,0.9), 0 0 70px rgba(255,0,51,0.5)',
+                  }}
+                >
+                  EXPERIENCES
+                </span>
+              </div>
             </h1>
           </motion.div>
 
           {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.55 }}
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(0.65rem, 2vw, 0.85rem)',
-              color: 'rgba(255,255,255,0.45)',
+              fontSize: 'clamp(0.65rem, 1.8vw, 0.85rem)',
+              color: 'rgba(255,255,255,0.55)',
               textTransform: 'uppercase',
-              letterSpacing: '0.2em',
+              letterSpacing: '0.22em',
               marginBottom: '3rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.75rem',
+              flexWrap: 'wrap',
             }}
           >
-            Full Stack Developer • React.js • Node.js • MongoDB
-          </motion.p>
+            <span>AI/ML ENGINEER</span>
+            <span style={{ color: 'var(--secondary)' }}>•</span>
+            <span>FULL STACK DEVELOPER</span>
+            <span style={{ color: 'var(--secondary)' }}>•</span>
+            <span>COMPUTER VISION ENTHUSIAST</span>
+          </motion.div>
 
-          {/* Buttons */}
+          {/* Action CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}
+            transition={{ duration: 0.6, delay: 0.75 }}
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1.25rem',
+            }}
           >
-            <a href="#work" onClick={(e) => {
-              e.preventDefault();
-              const el = document.querySelector('#work');
-              if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-            }}>
-              <button className="btn-primary">
-                <span>View Projects</span>
-                <span className="btn-fill" />
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('#projects');
+              }}
+              style={{ textDecoration: 'none' }}
+            >
+              <button
+                style={{
+                  padding: '0.85rem 2.25rem',
+                  background: '#ffffff',
+                  color: '#000000',
+                  border: 'none',
+                  borderRadius: '4px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.15em',
+                  cursor: 'pointer',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  boxShadow: '0 0 20px rgba(255,255,255,0.2)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 0 30px rgba(255,255,255,0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(255,255,255,0.2)';
+                }}
+              >
+                VIEW PROJECTS
               </button>
             </a>
-            <a href="#contact" onClick={(e) => {
-              e.preventDefault();
-              const el = document.querySelector('#contact');
-              if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-            }}>
-              <button className="btn-outline">Contact Me</button>
+
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('#contact');
+              }}
+              style={{ textDecoration: 'none' }}
+            >
+              <button
+                style={{
+                  padding: '0.85rem 2.25rem',
+                  background: 'rgba(255,255,255,0.03)',
+                  color: '#ffffff',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  borderRadius: '4px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.15em',
+                  cursor: 'pointer',
+                  transition: 'border-color 0.2s, background 0.2s, transform 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--secondary)';
+                  e.currentTarget.style.background = 'rgba(255,0,51,0.08)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                CONTACT ME
+              </button>
             </a>
-            <a href="/resume.pdf" download="Mohammad_Ejaz_Mehendi_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              <button className="btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+
+            <a
+              href="/resume.pdf"
+              download="Mohammad_Ejaz_Mehendi_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              <button
+                style={{
+                  padding: '0.85rem 1.75rem',
+                  background: 'rgba(255,0,51,0.1)',
+                  color: 'var(--secondary)',
+                  border: '1px solid rgba(255,0,51,0.3)',
+                  borderRadius: '4px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.15em',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'border-color 0.2s, background 0.2s, transform 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,0,51,0.2)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,0,51,0.1)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
                 <Download size={14} />
-                Download Resume
+                RESUME
               </button>
             </a>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Bottom Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.4 }}
+        transition={{ delay: 1.1 }}
         style={{
           position: 'absolute',
-          bottom: '2.5rem',
+          bottom: '2rem',
           left: '50%',
           transform: 'translateX(-50%)',
           display: 'flex',
@@ -181,35 +339,41 @@ export default function Hero() {
           zIndex: 2,
         }}
       >
-        <span style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.6rem',
-          textTransform: 'uppercase',
-          letterSpacing: '0.25em',
-          color: 'rgba(255,255,255,0.3)',
-        }}>
-          Scroll
+        <span
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.6rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.25em',
+            color: 'rgba(255,255,255,0.4)',
+          }}
+        >
+          SCROLL
         </span>
-        <div style={{ width: 1, height: 48, background: 'rgba(255,255,255,0.15)', overflow: 'hidden', position: 'relative' }}>
+        <div
+          style={{
+            width: 1,
+            height: 40,
+            background: 'rgba(255,255,255,0.15)',
+            overflow: 'hidden',
+            position: 'relative',
+          }}
+        >
           <div
             ref={scrollIndicatorRef}
             style={{
               position: 'absolute',
-              top: 0, left: 0, right: 0,
+              top: 0,
+              left: 0,
+              right: 0,
               height: '50%',
               background: 'var(--secondary)',
+              boxShadow: '0 0 10px var(--secondary)',
               transition: 'transform 0.4s ease',
             }}
           />
         </div>
       </motion.div>
-
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
-      `}</style>
     </section>
   );
 }
