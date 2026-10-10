@@ -25,7 +25,7 @@ export default function Hero() {
     const el = document.querySelector(id);
     if (el) {
       window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - 70,
+        top: el.getBoundingClientRect().top + window.scrollY - 80,
         behavior: 'smooth',
       });
     }
@@ -69,7 +69,7 @@ export default function Hero() {
           position: 'relative',
           zIndex: 2,
           width: '100%',
-          padding: '5rem 1.5rem 6rem',
+          padding: '6rem 1.5rem 6rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -77,52 +77,6 @@ export default function Hero() {
           minHeight: '100vh',
         }}
       >
-        {/* Top Minimal Navigation Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          style={{
-            position: 'absolute',
-            top: '2.5rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '2rem',
-            zIndex: 10,
-          }}
-        >
-          {[
-            { label: 'WORK', href: '#projects' },
-            { label: 'STACK', href: '#stack' },
-            { label: 'EXPERIENCE', href: '#experience' },
-            { label: 'EDUCATION', href: '#education' },
-          ].map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(item.href);
-              }}
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.7rem',
-                color: 'rgba(255,255,255,0.45)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.25em',
-                textDecoration: 'none',
-                transition: 'color 0.3s',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
-            >
-              {item.label}
-            </a>
-          ))}
-        </motion.div>
-
         {/* Hero Central Content */}
         <div style={{ maxWidth: '1050px', margin: '0 auto', textAlign: 'center', width: '100%' }}>
 
@@ -130,7 +84,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1
               style={{
@@ -170,10 +124,10 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(0.65rem, 1.8vw, 0.85rem)',
+              fontSize: 'clamp(0.7rem, 2vw, 0.9rem)',
               color: 'rgba(255,255,255,0.55)',
               textTransform: 'uppercase',
               letterSpacing: '0.22em',
@@ -181,12 +135,10 @@ export default function Hero() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.75rem',
+              gap: '1rem',
               flexWrap: 'wrap',
             }}
           >
-            <span>AI/ML ENGINEER</span>
-            <span style={{ color: 'var(--secondary)' }}>•</span>
             <span>FULL STACK DEVELOPER</span>
             <span style={{ color: 'var(--secondary)' }}>•</span>
             <span>COMPUTER VISION ENTHUSIAST</span>
@@ -196,7 +148,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.75 }}
+            transition={{ duration: 0.6, delay: 0.65 }}
             style={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -206,10 +158,10 @@ export default function Hero() {
             }}
           >
             <a
-              href="#projects"
+              href="#work"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('#projects');
+                scrollToSection('#work');
               }}
               style={{ textDecoration: 'none' }}
             >
@@ -326,7 +278,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.1 }}
+        transition={{ delay: 1.0 }}
         style={{
           position: 'absolute',
           bottom: '2rem',
