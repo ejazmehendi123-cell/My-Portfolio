@@ -1,0 +1,86 @@
+export const projects = [
+  {
+    id: "01",
+    name: "Qstream",
+    fullName: "Qstream – Micro-Learning Platform",
+    description:
+      "A micro-learning platform designed to support structured learning, interactive assessments, progress tracking, and personalized learning experiences powered by AI assistance.",
+    technologies: ["React.js", "Node.js", "Supabase", "JWT", "Socket.IO"],
+    features: [
+      "User authentication and protected routes",
+      "Interactive learning modules",
+      "Quizzes and assessments",
+      "Progress tracking and learning streaks",
+      "AI-powered learning assistance",
+      "Personalized learning paths",
+      "Achievements and rewards",
+    ],
+    github: "https://github.com/ejazmehendi123-cell/Qstream-Micro-Learning",
+    live: null,
+    image: null,
+  },
+  {
+    id: "02",
+    name: "Unified Student Placement System",
+    fullName: "Unified Student Placement System",
+    description:
+      "A student placement management platform to organize student profiles, company opportunities, placement activities, eligibility checks, and application tracking with admin dashboard.",
+    technologies: ["React.js", "Node.js", "Supabase", "JWT", "Socket.IO"],
+    features: [
+      "Student registration and profiles",
+      "Company registration",
+      "Placement drives management",
+      "Eligibility checking",
+      "Application tracking",
+      "Admin dashboard",
+      "Analytics",
+    ],
+    github:
+      "https://github.com/ejazmehendi123-cell/unified-student-placement-system",
+    live: null,
+    image: null,
+  },
+  {
+    id: "03",
+    name: "Bank Account Management",
+    fullName: "Bank Account Management System",
+    description:
+      "A secure banking application focused on account operations, transaction integrity, protected APIs, and real-time transaction updates using Socket.IO and atomic MongoDB transactions.",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Socket.IO",
+    ],
+    features: [
+      "Secure JWT authentication with refresh tokens",
+      "Protected REST APIs",
+      "Transaction management",
+      "MongoDB atomic balance updates",
+      "Real-time transaction notifications",
+    ],
+    github: "https://github.com/ejazmehendi123-cell",
+    live: null,
+    image: null,
+  },
+  {
+    id: "04",
+    name: "Blogger",
+    fullName: "Blogger Web Application",
+    description:
+      "A full-featured blogging platform with authentication, CRUD operations for posts, user management, comments, and a fully responsive React interface.",
+    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
+    features: [
+      "Authentication and protected routes",
+      "Create, read, update, delete blog posts",
+      "User management",
+      "Comments system",
+      "Responsive React interface",
+    ],
+    github: "https://github.com/ejazmehendi123-cell/Blogger-App",
+    live: null,
+    image: null,
+  },
+];
