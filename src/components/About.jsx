@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { Download } from 'lucide-react';
 
 const stats = [
-  { value: '4+', label: 'Projects Built' },
+  { value: '10+', label: 'Projects Built' },
   { value: '15+', label: 'Technologies' },
   { value: '200+', label: 'LeetCode Problems' },
   { value: '5+', label: 'Hackathons' },

@@ -6,7 +6,7 @@ export const experience = [
     organization: "Syntexchub",
     bullets: [
       "Completed internship training in Java programming and full-stack web development.",
-      "Developed a Bank Account Management System using Node.js, Express.js, MongoDB, and JWT authentication.",
+      "Developed a Bank Account Management System using Node.js, MongoDB, and JWT authentication.",
       "Implemented secure REST APIs, JWT refresh tokens, MongoDB transactions, and protected routes.",
       "Used Socket.IO for real-time transaction updates and notifications.",
     ],

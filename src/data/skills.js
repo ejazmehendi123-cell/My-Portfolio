@@ -9,7 +9,7 @@ export const skills = [
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express.js", "REST APIs", "JWT Auth", "Socket.IO"],
+    items: ["Node.js", "REST APIs", "JWT Auth", "Socket.IO"],
   },
   {
     category: "Databases",
