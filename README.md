@@ -70,6 +70,8 @@ A high-performance, dark cinematic developer portfolio designed for **Mohammad E
    ```env
    SUPABASE_URL=https://<your-project-ref>.supabase.co
    SUPABASE_SERVICE_ROLE_KEY=<your-service-role-key>
+   RESEND_API_KEY=re_your_api_key_here
+   CONTACT_EMAIL=ejazmehendi123@gmail.com
    ```
 
 4. **Start development server**:
