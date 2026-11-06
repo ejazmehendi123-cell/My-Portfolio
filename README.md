@@ -31,7 +31,7 @@ A high-performance, dark cinematic developer portfolio designed for **Mohammad E
 - **🎯 Interactive Skills Matrix**: Categorized tech stack tags with hover glow reactive feedback.
 - **📜 Professional Timeline**: Vertical experience timeline highlighting internship achievements at **Syntexchub**.
 - **🎓 Academic & Achievement Cards**: Real-time stats badges (**9.36 CGPA**, **200+ LeetCode**, **10+ Projects Built**).
-- **📱 Fully Responsive**: Smooth mobile drawer navigation and fluid responsive grid layouts for all screen dimensions.
+- **📱 Fully Responsive**: Smooth mobile drawer navigation and fluid responsive grid layout for all screen dimensions.
 - **📄 Downloadable Resume**: Integrated download link for `Resume3.pdf`.
 
 ---
