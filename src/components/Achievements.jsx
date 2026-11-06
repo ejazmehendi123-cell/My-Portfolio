@@ -16,7 +16,7 @@ export default function Achievements() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section style={{ padding: '6rem 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+    <section id="achievements" style={{ padding: '6rem 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
       <div className="section-container">
         <motion.div
           ref={ref}

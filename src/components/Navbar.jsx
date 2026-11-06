@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Stack', href: '#stack' },
   { label: 'Experience', href: '#experience' },
   { label: 'Education', href: '#education' },
+  { label: 'Achievements', href: '#achievements' },
 ];
 
 export default function Navbar() {

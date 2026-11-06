@@ -8,9 +8,10 @@
 [![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.x-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![Tailwind CSS](https://img.shields.io/badge/CSS-Vanilla%20System-38BDF8?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-my--portfolio--ejaz.vercel.app-ff0033?style=for-the-badge&logo=vercel&logoColor=white)](https://my-portfolio-ejaz.vercel.app)
 [![License](https://img.shields.io/badge/License-MIT-green.style=for-the-badge)](LICENSE)
 
-[🌐 Live Portfolio Demo](#-live-demo) • [✨ Key Features](#-key-features) • [🚀 Quick Start](#-quick-start) • [📫 Contact](#-contact)
+[🌐 Live Portfolio Demo](https://my-portfolio-ejaz.vercel.app) • [✨ Key Features](#-key-features) • [🚀 Quick Start](#-quick-start) • [📫 Contact](#-contact)
 
 ---
 
@@ -64,13 +65,20 @@ A high-performance, dark cinematic developer portfolio designed for **Mohammad E
    npm install
    ```
 
-3. **Start development server**:
+3. **Environment Setup**:
+   Create a `.env` file in the root directory (based on `.env.example`):
+   ```env
+   SUPABASE_URL=https://<your-project-ref>.supabase.co
+   SUPABASE_SERVICE_ROLE_KEY=<your-service-role-key>
+   ```
+
+4. **Start development server**:
    ```bash
    npm run dev
    ```
    Open `http://localhost:5173/` in your browser.
 
-4. **Build for production**:
+5. **Build for production**:
    ```bash
    npm run build
    ```
@@ -80,6 +88,8 @@ A high-performance, dark cinematic developer portfolio designed for **Mohammad E
 ## 📂 Project Structure
 
 ```text
+├── api/
+│   └── contact.js       # Vercel serverless function & dev API handler
 ├── public/
 │   ├── images/          # Profile photo & project preview images
 │   ├── favicon.svg      # Custom initials SVG favicon
@@ -100,7 +110,10 @@ A high-performance, dark cinematic developer portfolio designed for **Mohammad E
 │   ├── index.css        # Global CSS design tokens
 │   ├── App.jsx          # Root component
 │   └── main.jsx         # React entry point
+├── supabase/
+│   └── schema.sql       # PostgreSQL table & RLS policies
 ├── package.json
+├── vercel.json
 └── vite.config.js
 ```
 
